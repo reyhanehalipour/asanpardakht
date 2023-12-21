@@ -94,7 +94,7 @@ const PhoneInputValidation = () => {
                 </div>
                 {!isPhoneNumberValid && <div style={{ color: 'red' }}>شماره تلفن باید 11 رقم باشد</div>}
                 {showPassword && (
-                    <div>
+                    <div  >
                         <label htmlFor="phoneNumber" className='text-[14px] font-semibold text-gray'>رمز عبور:</label>
                         <div className={`p-2 border mt-3 flex items-center gap-3 rounded-[8px] transition-all ease-out duration-1000 transform hover:scale-110 h-[50px] w-[360px] ${isPasswordValid ? "border-[#D0D5DD]" : "border-red border-2"}`}>
                             <MdLockOutline size={20} color="gray" />
@@ -105,7 +105,7 @@ const PhoneInputValidation = () => {
                                 value={password}
                                 onChange={handlePasswordChange}
                                 onBlur={handleBlur}
-                                className='w-[320px]  outline-none '
+                                className='w-[320px] outline-none '
                             />
                             <FiHelpCircle size={20} color="gray" />
 
