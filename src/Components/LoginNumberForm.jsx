@@ -3,12 +3,14 @@ import { FaMobileScreenButton } from "react-icons/fa6";
 import { MdLockOutline } from "react-icons/md";
 import swal from "sweetalert";
 import { FiHelpCircle } from "react-icons/fi";
+import axios from 'axios';
 
 const PhoneInputValidation = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
     const [password, setPassword] = useState('');
     const [isPasswordValid, setIsPasswordValid] = useState(true);
+    const [responseMessage, setResponseMessage] = useState('');
  console.log(phoneNumber)
 
     const [showPassword, setShowPassword] = useState(false);
@@ -44,34 +46,40 @@ const PhoneInputValidation = () => {
   const sendCode = async (event) => {
     event.preventDefault();
 
-    const res = await fetch("https://pardakhtsaz.com/api/web/users/otp/new", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({phoneNumber}),
-    });
+    try {
+        // ارسال درخواست به سمت بک‌اند
+        const response = await axios.post('https://pardakhtsaz.com/api/web', {phoneNumber});
+  
+        // پردازش پاسخ بک‌اند
+        setResponseMessage(response.data.message);
 
-    if (res.status === 200) {
-      swal({
-        title: "رمز یک بار مصرف برای شما ارسال شد❤️",
-        buttons: "Ok",
-      });
-      setIsSent(true);
-    } else {
-      swal({
-        title: "دوباره تلاش کنید ❤️",
-        buttons: "Ok",
-      });
+        if (response.status === 200) {     
+            swal({
+              title: "کد برای شما پیامک شد",
+              icon: "success",
+              buttons: "بستن",
+            })
+        } else {
+            console.error('Login failed');
+          }
+      } catch (error) {
+        // پردازش خطا
+        console.error('Error submitting phone number:', error);
+        swal({
+            title: "مشکلی پیش امده است",
+            icon: "error",
+            buttons: "بستن",
+          })
+        
+      }
     }
-  };
-
+   
 
     return (
         <div>
             <form>
                 <label htmlFor="phoneNumber" className='text-[14px] font-semibold text-gray'>شماره تلفن:</label>
-                <div className={`p-2 border mt-2  flex items-center gap-3 rounded-[8px]  h-[50px] w-[360px] ${isPhoneNumberValid ? "border-[#D0D5DD]" : "border-red border-2"}`}>
+                <div className={`p-2 border mt-2  flex items-center gap-3 rounded-[8px] transition-all ease-out duration-1000 transform hover:scale-110  h-[50px] w-[360px] ${isPhoneNumberValid ? "border-[#D0D5DD]" : "border-red border-2"}`}>
                     <FaMobileScreenButton size={20} color="gray" />
                     <input
                         type="text"
@@ -111,7 +119,7 @@ const PhoneInputValidation = () => {
 
                 {showPassword ? (<button
                     type="submit"
-                    className="bg-maincolore text-white p-2  mt-6 bg-blue rounded-[8px]   h-[50px] w-[360px] flex items-center justify-center"
+                    className="bg-maincolore  hover:bg-dark text-white p-2  mt-6 bg-blue rounded-[8px]   h-[50px] w-[360px] flex items-center justify-center"
 
                 >
                     ورود
