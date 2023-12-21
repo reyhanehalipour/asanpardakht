@@ -22,7 +22,7 @@ const PhoneInputValidation = () => {
     // اعتبارسنجی با استفاده از یک عبارت منظم
     const isValid = /^\d{11}$/.test(inputValue);
     setIsPhoneNumberValid(isValid);
-    setPhoneNumber(inputValue);
+    setPhone(inputValue);
   };
 
   const handlePasswordChange = (e) => {
