@@ -8,12 +8,12 @@ import { motion ,AnimatePresence } from "framer-motion";
 
 
 const PhoneInputValidation = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [responseMessage, setResponseMessage] = useState("");
-  console.log(phoneNumber);
+  console.log(phone);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -36,7 +36,7 @@ const PhoneInputValidation = () => {
   const handleBlur = () => {
     // اگر در زمان blur، شماره تلفن ولید نباشد، مقدار فیلد را خالی کنید
     if (!isPhoneNumberValid) {
-      setPhoneNumber("");
+      setPhone("");
     }
     if (!isPasswordValid) {
       setPassword("");
@@ -49,7 +49,7 @@ const PhoneInputValidation = () => {
     try {
       // ارسال درخواست به سمت بک‌اند
       const response = await axios.post("https://pardakhtsaz.com/api/web", {
-        phoneNumber,
+        phone,
       });
 
       // پردازش پاسخ بک‌اند
@@ -79,7 +79,7 @@ const PhoneInputValidation = () => {
     <div>
       <form>
         <label
-          htmlFor="phoneNumber"
+          htmlFor="phone"
           className="text-[14px] font-semibold text-gray"
         >
          شماره موبایل:
@@ -92,9 +92,9 @@ const PhoneInputValidation = () => {
           <FaMobileScreenButton size={20} color="gray" />
           <input
             type="text"
-            id="phoneNumber"
-            name="phoneNumber"
-            value={phoneNumber}
+            id="phone"
+            name="phone"
+            value={phone}
             onChange={handlePhoneChange}
             onBlur={handleBlur}
             className="w-[320px]  outline-none "
