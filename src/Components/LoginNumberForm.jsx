@@ -82,10 +82,10 @@ const PhoneInputValidation = () => {
           htmlFor="phoneNumber"
           className="text-[14px] font-semibold text-gray"
         >
-          شماره تلفن:
+         شماره موبایل:
         </label>
         <div
-          className={`p-2 border mt-2  flex items-center gap-3 rounded-[8px] transition-all ease-out duration-1000 transform hover:scale-110  h-[50px] w-[360px] ${
+          className={`p-2 border mt-1  mb-3 flex items-center gap-3 rounded-[8px] transition-all ease-out duration-1000 transform hover:scale-110  h-[50px] w-[360px] ${
             isPhoneNumberValid ? "border-[#D0D5DD]" : "border-red border-2"
           }`}
         >
@@ -114,12 +114,12 @@ const PhoneInputValidation = () => {
           >
             <label
               htmlFor="password"
-              className="text-[14px] font-semibold text-gray"
+              className="text-[14px] font-semibold text-gray "
             >
               رمز عبور:
             </label>
             <div
-              className={`p-2 border mt-3 flex items-center gap-3 rounded-[8px] transition-all ease-out duration-1000 transform hover:scale-110 h-[50px] w-[360px] ${
+              className={`p-2 border mt-1 flex items-center gap-3 rounded-[8px] transition-all ease-out duration-1000 transform hover:scale-110 h-[50px] w-[360px] ${
                 isPasswordValid ? "border-[#D0D5DD]" : "border-red border-2"
               }`}
             >
