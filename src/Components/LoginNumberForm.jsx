@@ -48,7 +48,7 @@ const PhoneInputValidation = () => {
 
     try {
       // ارسال درخواست به سمت بک‌اند
-      const response = await axios.post("https://pardakhtsaz.com/api/web", {
+      const response = await axios.post("https://pardakhtsaz.com/api/web/users/otp/new", {
         phone,
       });
 
