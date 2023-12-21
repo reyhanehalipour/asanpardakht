@@ -1,0 +1,15 @@
+ .swiper-pagination-bullet-active {
+    background-color: #b8b7b7 !important;
+}
+.swiper-pagination-bullet {
+    width: 80px !important;
+    height: 5px !important;
+    border-radius: 2px !important;
+     
+}
+.swiper-pagination {
+    display: flex;
+    position: inherit;
+    bottom: 170px !important;
+}
+

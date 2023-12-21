@@ -8,9 +8,8 @@ body{
     overflow-x: hidden;
 }
 @font-face {
-    font-family: 'YourFontName';
-    src: url('./fonts/Pro/Yekan\ Bakh\ Family/.oft') format('oft'),
-         url('./fonts/Pro/Yekan\ Bakh\ Family/oft') format('oft');
+    font-family: 'YekanBakhFaNum';
+    src: url('./fonts/YekanBakh-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
