@@ -4,8 +4,8 @@ import { MdLockOutline } from "react-icons/md";
 import swal from "sweetalert";
 import { FiHelpCircle } from "react-icons/fi";
 import axios from "axios";
-import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion";
+import { motion ,AnimatePresence } from "framer-motion";
+
 
 const PhoneInputValidation = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -104,11 +104,12 @@ const PhoneInputValidation = () => {
         {!isPhoneNumberValid && (
           <div style={{ color: "red" }}>شماره تلفن باید 11 رقم باشد</div>
         )}
+        <AnimatePresence>
         {showPassword && (
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{opacity:0 , y:100}}
+            exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.7 }}
           >
             <label
@@ -136,6 +137,7 @@ const PhoneInputValidation = () => {
             </div>
           </motion.div>
         )}
+        </AnimatePresence>
         {!isPasswordValid && (
           <div style={{ color: "red" }}>رمز عبور باید حداقل 8 کاراکتر باشد</div>
         )}
