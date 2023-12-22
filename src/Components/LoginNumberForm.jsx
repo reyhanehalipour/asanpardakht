@@ -5,7 +5,8 @@ import swal from "sweetalert";
 import { FiHelpCircle } from "react-icons/fi";
 import axios from "axios";
 import { motion ,AnimatePresence } from "framer-motion";
-import config from '../config'
+
+
 
 
 const PhoneInputValidation = () => {
@@ -17,6 +18,7 @@ const PhoneInputValidation = () => {
   console.log(phone);
 
   const [showPassword, setShowPassword] = useState(false);
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
   const handlePhoneChange = (e) => {
     const inputValue = e.target.value;
@@ -49,7 +51,7 @@ const PhoneInputValidation = () => {
 
     try {
       // ارسال درخواست به سمت بک‌اند
-      const response = await axios.post(`${config.baseUrl}/users/otp/new`, {
+      const response = await axios.post(`${apiUrl}/users/otp/new`, {
         phone,
       });
 
