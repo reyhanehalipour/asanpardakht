@@ -5,6 +5,7 @@ import swal from "sweetalert";
 import { FiHelpCircle } from "react-icons/fi";
 import axios from "axios";
 import { motion ,AnimatePresence } from "framer-motion";
+import config from '../config'
 
 
 const PhoneInputValidation = () => {
@@ -48,7 +49,7 @@ const PhoneInputValidation = () => {
 
     try {
       // ارسال درخواست به سمت بک‌اند
-      const response = await axios.post("https://pardakhtsaz.com/api/web/users/otp/new", {
+      const response = await axios.post(`${config.baseUrl}/users/otp/new`, {
         phone,
       });
 
