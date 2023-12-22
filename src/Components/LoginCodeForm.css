@@ -1,0 +1,14 @@
+.ltr-container {
+    direction: ltr  !important;
+  }
+  
+  .ltr-otp-container {
+    direction: ltr !important; 
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .ltr-otp-input {
+    direction: ltr !important;
+   
+  }

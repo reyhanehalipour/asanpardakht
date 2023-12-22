@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import OtpInput from 'react-otp-input';
 import { FaArrowLeft } from "react-icons/fa";
 import axios from 'axios';
+import "./LoginCodeForm.css"
 
 import { usePhone } from '../context/phoneContext';
 
@@ -52,7 +53,7 @@ export default function VerificationBox() {
                 <form className='justify-center items-center flex flex-col mt-4'>
                     <div className="flex flex-col justify-center items-center">
                      <div className='text-[22px]  text-[#344054] my-3 font-semibold'>کد تایید را وارد کنید</div> 
-
+                        <div className="ltr-container">
                         <OtpInput
                         
                             value={otp}
@@ -71,7 +72,8 @@ export default function VerificationBox() {
                                 caretColor: "blue",
                                 marginRight: "10px",
                                 background:'#D0D5DD',
-                                outlineColor:"purple"
+                                outlineColor:"purple",
+                                display:'inline-block'
                             }}
                             focusStyle={{
                                 border: "1px solid #CFD3DB",
@@ -79,6 +81,7 @@ export default function VerificationBox() {
                             }}
 
                         />
+                        </div>
                      <div className=" text-gray text-[13px] mt-5 mb-7">
                      کد دریافت نکردید ؟ 
                     <span className="text-maincolore font-semibold">ارسال دوباره</span>
