@@ -32,6 +32,7 @@ export default function VerificationBox() {
                                 caretColor: "blue",
                                 marginRight: "10px",
                                 background:'#D0D5DD',
+                                outlineColor:"purple"
                             }}
                             focusStyle={{
                                 border: "1px solid #CFD3DB",
