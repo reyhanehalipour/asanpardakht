@@ -97,7 +97,7 @@ const PhoneInputValidation = () => {
             value={phone}
             onChange={handlePhoneChange}
             onBlur={handleBlur}
-            className="w-[320px]  outline-none "
+            className="w-[320px] p-2 outline-none "
           />
           <FiHelpCircle size={20} color="gray" />
         </div>
