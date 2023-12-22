@@ -11,6 +11,8 @@ export const PhoneProvider = ({ children }) => {
     setPhone1(number);
   };
 
+
+
   return (
     <PhoneContext.Provider value={{ phone, setPhone }}>
       {children}

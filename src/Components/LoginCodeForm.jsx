@@ -12,9 +12,9 @@ export default function VerificationBox() {
 
     const { phone } = usePhone();
     const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
-
-    const [otp, setOtp] = useState('');
-    console.log(otp)   
+  const[ResponseMessage,setResponseMessage]= useState({})
+    const [otp_code, setotp_code] = useState('');
+    console.log(otp_code)   
 
     const handleOTPSubmit = async (event) => {
         event.preventDefault();
@@ -22,11 +22,12 @@ export default function VerificationBox() {
         try {
           // ارسال درخواست به سمت بک‌اند
           const response = await axios.post(`${apiUrl}/users/login/otp`, {
-            phone, otp
+            phone, otp_code
           });
     
           // پردازش پاسخ بک‌اند
-          setResponseMessage(response.data.message);
+          setResponseMessage(response.data);
+          console.log(ResponseMessage)
     
           if (response.status === 200) {
             swal({
@@ -56,8 +57,8 @@ export default function VerificationBox() {
                         <div className="ltr-container">
                         <OtpInput
                         
-                            value={otp}
-                            onChange={setOtp}
+                            value={otp_code}
+                            onChange={setotp_code}
                             numInputs={6}
                             renderInput={(props) => <input {...props} />}
                             inputStyle={{
