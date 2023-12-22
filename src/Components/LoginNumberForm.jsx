@@ -7,12 +7,15 @@ import axios from "axios";
 import { motion ,AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+import { usePhone } from '../context/phoneContext';
+
 
 
 
 const PhoneInputValidation = () => {
   const navigate = useNavigate();
-  const [phone, setPhone] = useState("");
+  // const [phone, setPhone] = useState("");
+  const { phone, setPhone } = usePhone();
   const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(true);

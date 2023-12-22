@@ -3,11 +3,49 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import OtpInput from 'react-otp-input';
 import { FaArrowLeft } from "react-icons/fa";
+import axios from 'axios';
+
+import { usePhone } from '../context/phoneContext';
 
 export default function VerificationBox() {
 
+    const { phone } = usePhone();
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+
     const [otp, setOtp] = useState('');
     console.log(otp)   
+
+    const handleOTPSubmit = async (event) => {
+        event.preventDefault();
+    
+        try {
+          // ارسال درخواست به سمت بک‌اند
+          const response = await axios.post(`${apiUrl}/users/login/otp`, {
+            phone, otp
+          });
+    
+          // پردازش پاسخ بک‌اند
+          setResponseMessage(response.data.message);
+    
+          if (response.status === 200) {
+            swal({
+              title: "وارد شدید",
+              icon: "success",
+              buttons: "بستن",
+            })
+          } else {
+            console.error("Login failed");
+          }
+        } catch (error) {
+          // پردازش خطا
+          console.error("Error submitting otp code:", error);
+          swal({
+            title: "مشکلی پیش امده است",
+            icon: "error",
+            buttons: "بستن",
+          });
+        }
+      };
     return (
 
         <div className='md:w-[312px] h-[331px] mx-auto flex flex-col jusfity-center items-center'>
@@ -16,6 +54,7 @@ export default function VerificationBox() {
                      <div className='text-[22px]  text-[#344054] my-3 font-semibold'>کد تایید را وارد کنید</div> 
 
                         <OtpInput
+                        
                             value={otp}
                             onChange={setOtp}
                             numInputs={6}
@@ -47,7 +86,7 @@ export default function VerificationBox() {
                     </div>
 
 
-                    <Link to='/'> <button type="submit" className="bg-maincolore text-white  font-bold p-2 rounded bg-blue h-[50px]  w-[390px] flex items-center justify-center">
+                    <Link to='/'> <button onClick={handleOTPSubmit} type="submit" className="bg-maincolore text-white  font-bold p-2 rounded bg-blue h-[50px]  w-[390px] flex items-center justify-center">
                         ورود
                     </button></Link>
                 </form>
