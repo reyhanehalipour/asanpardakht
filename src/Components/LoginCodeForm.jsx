@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Formik, Form } from 'formik';
+
 import { Link } from 'react-router-dom';
 import OtpInput from 'react-otp-input';
 import { FaArrowLeft } from "react-icons/fa";
@@ -7,24 +7,11 @@ import { FaArrowLeft } from "react-icons/fa";
 export default function VerificationBox() {
 
     const [otp, setOtp] = useState('');
-    console.log(otp)
-
-    const initialValues = {
-        email: '',
-        password: '',
-    };
-
-    const handleSubmit = (values) => {
-        // ارسال داده‌ها به سرور یا انجام عملیات مورد نظر
-    };
-
+    console.log(otp)   
     return (
 
         <div className='md:w-[312px] h-[331px] mx-auto flex flex-col jusfity-center items-center'>
-
-
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                <Form className='justify-center items-center flex flex-col mt-4'>
+                <form className='justify-center items-center flex flex-col mt-4'>
                     <div className="flex flex-col justify-center items-center">
                      <div className='text-[22px]  text-[#344054] my-3 font-semibold'>کد تایید را وارد کنید</div> 
 
@@ -45,7 +32,6 @@ export default function VerificationBox() {
                                 caretColor: "blue",
                                 marginRight: "10px",
                                 background:'#D0D5DD',
-    
                             }}
                             focusStyle={{
                                 border: "1px solid #CFD3DB",
@@ -63,8 +49,8 @@ export default function VerificationBox() {
                     <Link to='/'> <button type="submit" className="bg-maincolore text-white  font-bold p-2 rounded bg-blue h-[50px]  w-[390px] flex items-center justify-center">
                         ورود
                     </button></Link>
-                </Form>
-            </Formik>
+                </form>
+          
             <div className='flex items-center gap-2 text-[#475467] mt-10'>
             <Link to='/login'><div>بازگشت به ورود</div></Link>
             <FaArrowLeft />

@@ -5,11 +5,13 @@ import swal from "sweetalert";
 import { FiHelpCircle } from "react-icons/fi";
 import axios from "axios";
 import { motion ,AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const PhoneInputValidation = () => {
+  const navigate = useNavigate();
   const [phone, setPhone] = useState("");
   const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
   const [password, setPassword] = useState("");
@@ -63,6 +65,8 @@ const PhoneInputValidation = () => {
           title: "کد برای شما پیامک شد",
           icon: "success",
           buttons: "بستن",
+        }).then((value) => {
+          navigate("/logincode");
         });
       } else {
         console.error("Login failed");
