@@ -107,12 +107,13 @@ const PhoneInputValidation = () => {
             value={phone}
             onChange={handlePhoneChange}
             onBlur={handleBlur}
-            className="w-[320px] p-2 outline-none "
+            className="w-[320px] p-2 outline-none inline-block"
+            placeholder="*******  **09"
           />
-          <FiHelpCircle size={20} color="gray" />
+          <FiHelpCircle size={20} color={`${isPasswordValid ? "gray" : "#F04438"}`} />
         </div>
         {!isPhoneNumberValid && (
-          <div style={{ color: "red" }}>شماره تلفن باید 11 رقم باشد</div>
+          <div style={{ color: "#F04438" }}>شماره تلفن باید 11 رقم باشد</div>
         )}
         <AnimatePresence>
         {showPassword && (
@@ -141,15 +142,15 @@ const PhoneInputValidation = () => {
                 value={password}
                 onChange={handlePasswordChange}
                 onBlur={handleBlur}
-                className="w-[320px] outline-none "
+                className="w-[320px] outline-none text-[#98A2B3] "
               />
-              <FiHelpCircle size={20} color="gray" />
+              <FiHelpCircle size={20} color={`${isPasswordValid ? "gray" : "#F04438"}`} />
             </div>
           </motion.div>
         )}
         </AnimatePresence>
         {!isPasswordValid && (
-          <div style={{ color: "red" }}>رمز عبور باید حداقل 8 کاراکتر باشد</div>
+          <div className="text-[#F04438] mt-2">رمز عبور باید حداقل 8 کاراکتر باشد</div>
         )}
 
         {showPassword ? (

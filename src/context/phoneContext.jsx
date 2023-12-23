@@ -11,22 +11,9 @@ export const PhoneProvider = ({ children }) => {
     setPhone1(number);
   };
 
-  
-  const login = (token) => {
-    // ورود به سیستم با دریافت توکن
-    setUser({ token });
-    localStorage.setItem('user', JSON.stringify({ token }));
-  };
-
-  const logout = () => {
-    // خروج از سیستم
-    setUser(null);
-    localStorage.removeItem('user');
-  };
-
 
   return (
-    <PhoneContext.Provider value={{ phone, setPhone, login, logout }}>
+    <PhoneContext.Provider value={{ phone, setPhone }}>
       {children}
     </PhoneContext.Provider>
   );
