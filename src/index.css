@@ -6,12 +6,16 @@
 body{
     font-family: 'YekanBakhFaNum', sans-serif;
     overflow-x: hidden;
+    font-variant-numeric: persian;
 }
 @font-face {
     font-family: 'YekanBakhFaNum';
     src: url('./fonts/YekanBakh-Regular.woff') format('woff');
+    src: url('./fonts/YekanBakhFaNum-Black.otf') format('oft');
     font-weight: normal;
     font-style: normal;
   }
+
+ 
   
   
