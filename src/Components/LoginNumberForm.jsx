@@ -86,11 +86,11 @@ const PhoneInputValidation = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center mt-11 md:mt-0">
       <form>
         <label
           htmlFor="phone"
-          className="text-[14px] font-semibold text-gray"
+          className="text-[14px] font-semibold text-gray  "
         >
          شماره موبایل:
         </label>
@@ -107,7 +107,7 @@ const PhoneInputValidation = () => {
             value={phone}
             onChange={handlePhoneChange}
             onBlur={handleBlur}
-            className="w-[320px] p-2 outline-none inline-block"
+            className="  w-[343px] md:w-[360px]  p-2 outline-none inline-block"
             placeholder="*******  **09"
           />
           <FiHelpCircle size={20} color={`${isPasswordValid ? "gray" : "#F04438"}`} />
@@ -115,6 +115,8 @@ const PhoneInputValidation = () => {
         {!isPhoneNumberValid && (
           <div style={{ color: "#F04438" }}>شماره تلفن باید 11 رقم باشد</div>
         )}
+        {!showPassword &&<div className="block md:hidden text-[13px] text-[#475467] font-normal">یک کد تایید به این شماره ارسال خواهد شد</div>}
+        
         <AnimatePresence>
         {showPassword && (
           <motion.div
@@ -142,7 +144,7 @@ const PhoneInputValidation = () => {
                 value={password}
                 onChange={handlePasswordChange}
                 onBlur={handleBlur}
-                className="w-[320px] outline-none text-[#98A2B3] "
+                className="md:w-[360px]  w-[343px]  outline-none text-[#98A2B3] "
               />
               <FiHelpCircle size={20} color={`${isPasswordValid ? "gray" : "#F04438"}`} />
             </div>
@@ -156,14 +158,14 @@ const PhoneInputValidation = () => {
         {showPassword ? (
           <button
             type="submit"
-            className="bg-maincolore  hover:bg-dark text-white p-2  mt-6 bg-blue rounded-[8px]   h-[50px] w-[360px] flex items-center justify-center"
+            className="bg-maincolore  hover:bg-dark text-white p-2 mt-[100px] md:mt-6 bg-blue rounded-[8px]   h-[50px]  w-[343px] md:w-[360px] md:first-letter:w-[360px] flex items-center justify-center"
           >
             ورود
           </button>
         ) : (
           <button
             type="submit"
-            className="bg-maincolore hover:bg-dark text-white p-2  mt-6 bg-blue rounded-[8px]  h-[50px] w-[360px] flex items-center justify-center"
+            className="bg-maincolore hover:bg-dark text-white p-2  mt-[200px] md:mt-6 bg-blue rounded-[8px]  h-[50px]  w-[343px] md:w-[360px] flex items-center justify-center"
             onClick={sendCode}
           >
             شروع کنید

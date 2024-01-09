@@ -55,13 +55,14 @@ export default function VerificationBox() {
       <form className='justify-center items-center flex flex-col mt-4'>
         <div className="flex flex-col justify-center items-center">
           <div className='text-[22px]  text-[#344054] my-3 font-semibold'>کد تایید را وارد کنید</div>
-          <div className="ltr-container">
+          <div className="ltr-container ">
             <OtpInput
 
               value={otp_code}
               onChange={setotp_code}
               numInputs={6}
               renderInput={(props) => <input {...props} />}
+           
               inputStyle={{
                 border: " 1px solid #D0D5DD",
                 borderRadius: '15px',
@@ -91,7 +92,7 @@ export default function VerificationBox() {
         </div>
 
 
-        <Link to='/'> <button onClick={handleOTPSubmit} type="submit" className="bg-maincolore text-white  font-bold p-2 rounded bg-blue h-[50px]  w-[390px] flex items-center justify-center">
+        <Link to='/'> <button onClick={handleOTPSubmit} type="submit" className="bg-maincolore text-white mt-[200px] md:mt-0 font-bold p-2 rounded-md bg-blue h-[50px] w-[343px]  md:w-[390px] flex items-center justify-center">
           ورود
         </button></Link>
       </form>

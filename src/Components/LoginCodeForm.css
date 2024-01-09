@@ -1,5 +1,7 @@
 .ltr-container {
     direction: ltr  !important;
+    width: 390px;
+    margin-left: 8px;
   }
   
   .ltr-otp-container {
@@ -11,4 +13,12 @@
   .ltr-otp-input {
     direction: ltr !important;
    
+  }
+  @media screen and(max-width:400px){
+    .ltr-container {
+    
+      width: 341px;
+  
+    }
+    
   }
