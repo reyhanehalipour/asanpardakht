@@ -23,7 +23,7 @@ export default function LoginPoster() {
   SwiperCore.use([Pagination]);
 
   return (
-    <div className='bg-loginposter h-screen w-[720px] flex items-center p-20'>
+    <div className='hidden  bg-loginposter bg-cover bg-no-repeat h-screen w-[720px] md:flex items-center p-20'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

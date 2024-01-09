@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         'loginposter': "url('./src/assets/loginposter.png')",
+        'mobileHeader':"url('./src/assets/MobileHeader.png')"
        
       },
       colors:{
